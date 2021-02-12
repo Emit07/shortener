@@ -3,6 +3,7 @@ const ejs = require("ejs");
 const path = require("path");
 const fetch = require("node-fetch");
 const bodyParser = require("body-parser");
+const { response } = require("express");
 const app = express();
 const router = express.Router();
 
@@ -14,46 +15,37 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/short', urlencodedParser, async (req, res) => {
-    let API_KEY = process.env.API_KEY_VALUE;
-    let SHORT_URL = req.body.url;
-    let SLUG = req.body.slug;
+    let API_KEY = process.env.API_KEY_VALUE || "4df3b60bf64c9e8ef9a902a0b00f68faeeda07c3";
+    let LONG_URL = req.body.url;
     let URL = null;
 
-    if (!SHORT_URL.startsWith('https://'))
+    console.log(LONG_URL.startsWith('https://'))
+
+    // this is the only way startswith actually returns a correct value
+    // please ignore this mess
+    if (LONG_URL.startsWith('https://') || LONG_URL.startsWith('http://')) null
+    else LONG_URL = `https://${LONG_URL}`
+
+    let r = await fetch('https://api-ssl.bitly.com/v4/shorten', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${API_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "long_url": `${LONG_URL}`, "domain": "bit.ly"})
+    });
+
+    if (r.ok)
     {
-        SHORT_URL = `https://${SHORT_URL}`
+        let json = await r.json();
+        if (!json.hasOwnProperty("timeout")) res.render("short.ejs", { short_link: json["link"] })
+        else res.render("error.ejs", { error: "Error - check if url is valid"})
+        
+    } else {
+        res.render("error.ejs", { error: `Error - ${r}` })
     }
 
-    if (SLUG == "") {
-        URL = `https://cutt.ly/api/api.php?key=${API_KEY}&short=${SHORT_URL}`
-    } else {
-        URL = `https://cutt.ly/api/api.php?key=${API_KEY}&short=${SHORT_URL}&name=${SLUG}`
-    }
-    console.log(SLUG)
-    let response = await fetch(URL)
-    if (response.ok) {
-        json = await response.json();
-        if (json["url"]["status"] == 7){
-            let short_link = json["url"]["shortLink"];
-                    
-            res.render("short.ejs", { short_link: short_link})   
-        } else {
-            if (json["url"]["status"] == 2) {
-                res.render("error.ejs", {error: "the entered link is not a link"})
-            }
-            if (json["url"]["status"] == 3) {
-                res.render("error.ejs", {error: "the preferred slug is already taken"})
-            }
-            if (json["url"]["status"] == 5) {
-                res.render("error.ejs", {error: "the link has not passed the validation. Includes invalid characters"})
-            }
-            if (json["url"]["status"] == 6) {
-                res.render("error.ejs", {error: "The link provided is from a blocked domain"})
-            }
-        }
-    } else {
-        alert("http Error: " + response.status);
-    }
+    
 })
 
 var PORT = process.env.PORT || 5000;
