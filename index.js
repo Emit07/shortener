@@ -15,7 +15,7 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/short', urlencodedParser, async (req, res) => {
-    let API_KEY = process.env.API_KEY_VALUE || "4df3b60bf64c9e8ef9a902a0b00f68faeeda07c3";
+    let API_KEY = process.env.API_KEY_VALUE;
     let LONG_URL = req.body.url;
     let URL = null;
 
