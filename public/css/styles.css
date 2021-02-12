@@ -1,0 +1,56 @@
+
+
+.content_holder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    margin-top: -50px;
+    transform: translate(-50%, -50%);
+}
+
+.spacing {
+    padding: 40px;
+}
+
+.author_holder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    text-align: center;
+    transform: scale(1);
+    transition-duration: 150ms;
+}
+
+.input_holder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: 150%;
+    transform: translate(-50%, -50%);
+}
+
+.button_holder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: 230%;
+    transform: translate(-50%, -50%);
+}
+
+.index_button_holder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: 100%;
+    transform: translate(-50%, -50%);
+}
+
+a {
+    text-decoration: none;
+}
