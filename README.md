@@ -16,7 +16,7 @@ Install node.js and make sure that npm is working.
 
 After you install node you will need to have the following installed using npm. 
 
-\nie, `npm i express ejs node-fetch body-parser`.
+`npm i express ejs node-fetch body-parser`.
 
 * [x] `express`
 * [x] `ejs`
