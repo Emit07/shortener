@@ -2,8 +2,7 @@
 
 This is a url shortener that runs on the bitly api. The shortner was made with node.js, this was not meant to be anything fancy it is just a super small project to learn about node. This project is released under the MIT license so feel free to modify and share.
 
-You can access this finished project at [http://short-nr.herokuapp.com/](http://short-nr.herokuapp.com/ "go to the url shortener")
-it is a little ironic having a big url for a link shortener
+You can access this finished project at [http://short-nr.herokuapp.com/](http://short-nr.herokuapp.com/ "go to the url shortener").it is a little ironic having a big url for a link shortener
 
 **Please remember I am using a free api key to show the concept so please do not spam links.**
 
@@ -11,7 +10,7 @@ it is a little ironic having a big url for a link shortener
 
 #### Installing Dependencies
 
-You will need to have the following installed.
+You will need to have the following installed using npm.
 
 * [x] `node.js`
 * [x] `express`
@@ -19,7 +18,7 @@ You will need to have the following installed.
 * [x] `node-fetch`
 * [x] `body-parser`
 
-You will also need an api key to shorten the urls. By default it is using the [bitly api](https://dev.bitly.com/ "bitly api"), you can find a plan [here](https://bitly.com/pages/pricing/v1?utm_content=pricing&utm_source=organic&utm_medium=dev-site&utm_campaign=website&utm_cta=web2-blank-pricing-dev-site-getstarted-getenterprise-getenterprise "get a plan")
+You will also need an api key to shorten the urls. By default it is using the [bitly api](https://dev.bitly.com/ "bitly api"), you can find a plan [here](https://bitly.com/pages/pricing/v1?utm_content=pricing&utm_source=organic&utm_medium=dev-site&utm_campaign=website&utm_cta=web2-blank-pricing-dev-site-getstarted-getenterprise-getenterprise "get a plan").
 
 After you get an api key, you can either set the environment variable or hardcode it into the script if you are not planning to share.
 
