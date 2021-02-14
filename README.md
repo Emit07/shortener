@@ -1,6 +1,6 @@
 ## Short-nr
 
-This is a url shortener that runs on the bitly api. The shortner was made with node.js, this was not meant to be anything fancy it is just a super small project to learn about node. This project is released under the MIT license so feel free to modify and share.
+This is a url shortener that runs on the bitly api. The shortner was made with node.js, this was not meant to be anything fancy it is just a super small project to learn about node. This project is released under the MIT license so feel free to modify and share. Please excuse the typos.
 
 You can access this finished project at [http://short-nr.herokuapp.com/](http://short-nr.herokuapp.com/ "go to the url shortener").it is a little ironic having a big url for a link shortener
 
@@ -10,9 +10,12 @@ You can access this finished project at [http://short-nr.herokuapp.com/](http://
 
 #### Installing Dependencies
 
-You will need to have the following installed using npm.
+Install node.js and make sure that npm is working.
 
 * [x] `node.js`
+
+After you install node you will need to have the following installed using npm.
+
 * [x] `express`
 * [x] `ejs`
 * [x] `node-fetch`
@@ -30,4 +33,5 @@ Once you install the dependencies you can run the application using
 #### Accessing the Page
 
 Unless you are running this remotely the default port will be 5000
-you can connect to the default server by going to localhost:5000
+you can connect to the default server by going to localhost:5000,
+you can always change the port of the server if it interferes.
