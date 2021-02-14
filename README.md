@@ -14,12 +14,18 @@ Install node.js and make sure that npm is working.
 
 * [x] `node.js`
 
-After you install node you will need to have the following installed using npm.
+After you install node you will need to have the following installed using npm. 
+
+\nie, `npm i express ejs node-fetch body-parser`.
 
 * [x] `express`
 * [x] `ejs`
 * [x] `node-fetch`
 * [x] `body-parser`
+
+Also install nodemon using `npm install nodemon --save-dev`.
+
+* [x] `nodemon`
 
 You will also need an api key to shorten the urls. By default it is using the [bitly api](https://dev.bitly.com/ "bitly api"), you can find a plan [here](https://bitly.com/pages/pricing/v1?utm_content=pricing&utm_source=organic&utm_medium=dev-site&utm_campaign=website&utm_cta=web2-blank-pricing-dev-site-getstarted-getenterprise-getenterprise "get a plan").
 
