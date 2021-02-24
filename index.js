@@ -38,14 +38,12 @@ app.post('/short', urlencodedParser, async (req, res) => {
     if (r.ok)
     {
         let json = await r.json();
-        if (!json.hasOwnProperty("timeout")) res.render("short.ejs", { short_link: json["link"] })
-        else res.render("error.ejs", { error: "Error - check if url is valid"})
+        if (!json.hasOwnProperty("timeout")) res.render("show.ejs", { message: json["link"] })
+        else res.render("show.ejs", { message: "Error - check if url is valid"})
         
     } else {
-        res.render("error.ejs", { error: `Error - ${r}` })
+        res.render("show.ejs", { message: `Error - ${r}` })
     }
-
-    
 })
 
 var PORT = process.env.PORT || 5000;
